@@ -1,0 +1,47 @@
+#b:Ts/PauseBeforeQuit="True"
+i:So/Demo/NumberOfHistoriesInRun = 10
+i:Ts/ShowHistoryCountAtInterval = 500
+
+#s:Gr/ViewA/Type = "OpenGL"
+
+s:So/Demo/Type = "Beam"
+s:So/Demo/Component = "BeamPosition"
+s:So/Demo/BeamParticle = "GenericIon(6,12)"
+d:So/Demo/BeamEnergy = 220. MeV
+u:So/Demo/BeamEnergySpread = 0.
+s:So/Demo/BeamAngularDistribution="None"
+s:So/Demo/BeamPositionDistribution="None"
+
+s:Ge/World/Material = "Vacuum"
+d:Ge/World/HLX=20.0 cm
+d:Ge/World/HLY=20.0 cm
+d:Ge/World/HLZ=50.0 cm
+b:Ge/World/Invisible = "True"
+
+s:Ge/Phantom/Type="TsCylinder"
+s:Ge/Phantom/Parent="World"
+s:Ge/Phantom/Material="G4_WATER"
+d:Ge/Phantom/HL =20. cm
+d:Ge/Phantom/RMin = 0. cm
+d:Ge/Phantom/RMax = 15. cm
+d:Ge/Phantom/SPhi = 0. deg
+d:Ge/Phantom/DPhi = 360. deg
+s:Ge/Phantom/Color="blue"
+
+s:Ge/Plate/Type="TsCylinder"
+s:Ge/Plate/Parent="Phantom"
+s:Ge/Plate/Material="G4_Al"
+d:Ge/Plate/HL = 1. cm
+d:Ge/Plate/RMin = 0. cm
+d:Ge/Plate/RMax = 15. cm
+d:Ge/Plate/SPhi = 0. deg
+d:Ge/Plate/DPhi = 360. deg
+s:Ge/Plate/Color="magenta"
+
+#====Scorer====#
+
+s:Sc/DoseScorer/Quantity="DoseToMedium" # Quantity to score
+s:Sc/DoseScorer/Component = "Phantom" # Where to score
+b:Sc/DoseScorer/OutputToConsole = "TRUE" # Output
+s:Sc/DoseScorer/IfOutputFileAlreadyExists = "Overwrite"
+i:Sc/DoseScorer/ZBins = 100
