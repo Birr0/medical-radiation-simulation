@@ -1,0 +1,3 @@
+includeFile = ./bragg_peak.txt 
+i:Ts/Seed = 10
+s:Sc/DoseScorer/OutputFile = "./bragg_peak/outputs/job10"

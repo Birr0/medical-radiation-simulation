@@ -1,0 +1,16 @@
+includeFile = ./base.txt 
+i:Ts/Seed = 7
+
+#=== Metal plate ===#
+s:Ge/Plate/Type="TsCylinder"
+s:Ge/Plate/Parent="Phantom"
+s:Ge/Plate/Material="G4_Al"
+d:Ge/Plate/HL = 1. cm
+d:Ge/Plate/RMin = 0. cm
+d:Ge/Plate/RMax = 15. cm
+d:Ge/Plate/SPhi = 0. deg
+d:Ge/Plate/DPhi = 360. deg
+d:Ge/Plate/TransZ=15 cm
+s:Ge/Plate/Color="magenta"
+
+s:Sc/DoseScorer/OutputFile = "./part_b/outputs_pos15/job7"

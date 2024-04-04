@@ -1,9 +1,16 @@
 #!/bin/bash
-i=1
-while [ $i -lt 11 ]
+pos=1
+export TOPAS_G4_DATA_DIR="/Applications/G4Data"
+export QT_QPA_PLATFORM_PLUGIN_PATH="/Applications/topas/Frameworks"
+while [ $pos -lt 20 ]
 do
-mkdir ./part_b ./part_b/jobs ./part_b/outputs
-cat <<EOF > ./part_b/jobs/job$i.txt
+i=1
+mkdir ./part_b
+mkdir ./part_b/jobs_pos$pos
+mkdir ./part_b/outputs_pos$pos
+while [ $i -lt 10 ]
+do
+cat <<EOF > ./part_b/jobs_pos$pos/job$i.txt
 includeFile = ./base.txt 
 i:Ts/Seed = $i
 
@@ -16,12 +23,14 @@ d:Ge/Plate/RMin = 0. cm
 d:Ge/Plate/RMax = 15. cm
 d:Ge/Plate/SPhi = 0. deg
 d:Ge/Plate/DPhi = 360. deg
-d:Ge/Plate/TransZ=14.0 cm
+d:Ge/Plate/TransZ=$pos cm
 s:Ge/Plate/Color="magenta"
 
-s:Sc/DoseScorer/OutputFile = "./part_b/outputs/job$i"
+s:Sc/DoseScorer/OutputFile = "./part_b/outputs_pos$pos/job$i"
 EOF
 
-((i ++))
-/usr/local/topas/topas/bin/topas ./part_b/jobs/job$i.txt
+/Applications/topas/bin/topas ./part_b/jobs_pos$pos/job$i.txt
+((i++))
+done
+((pos+=2))
 done
