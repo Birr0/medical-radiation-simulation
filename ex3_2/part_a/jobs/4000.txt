@@ -1,0 +1,36 @@
+#s:Gr/ViewA/Type = "OpenGL" # Open visualization
+#b:Ts/PauseBeforeQuit="True" # Do not quit simulation
+
+#====================Source==================
+s:So/Demo/BeamParticle = "GenericIon(6,12)"
+
+i:So/Demo/NumberOfHistoriesInRun = 100 # Number particles of primary
+i:Ts/ShowHistoryCountAtInterval = 50
+u:So/Demo/BeamEnergySpread = 0
+s:So/Demo/BeamAngularDistribution = "None"
+s:So/Demo/BeamPositionDistribution="None"
+
+#==================Geometry==================
+s:Ge/World/Material = "Vacuum" # World's material
+d:Ge/World/HLX=20.0 cm # World's dimensions
+d:Ge/World/HLY=20.0 cm
+d:Ge/World/HLZ=50.0 cm
+
+# === A water phantom, acting as a detector ===
+s:Ge/Detector/Type="TsBox" # Phantom's geometry
+s:Ge/Detector/Parent="World"
+s:Ge/Detector/Material="G4_WATER" # Phantom's material
+d:Ge/Detector/HLX=20.0 cm #Phantom's dimensions
+d:Ge/Detector/HLY=20.0 cm
+d:Ge/Detector/HLZ=20.0 cm
+
+#======================Scorer================
+s:Sc/DoseScorer/Quantity="DoseToMedium" # Quantity to score
+s:Sc/DoseScorer/Component = "Detector" # Where to score
+b:Sc/DoseScorer/OutputToConsole = "TRUE" # Output
+s:Sc/DoseScorer/IfOutputFileAlreadyExists = "Overwrite"
+i:Sc/DoseScorer/ZBins = 100
+
+i:Ts/Seed = 0
+d:So/Demo/BeamEnergy = 4000 MeV
+s:Sc/DoseScorer/OutputFile = "./outputs/job4000"

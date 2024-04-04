@@ -1,9 +1,11 @@
 #s:Gr/ViewA/Type = "OpenGL" # Open visualization
 #b:Ts/PauseBeforeQuit="True" # Do not quit simulation
+
 #====================Source==================
 s:So/Demo/BeamParticle = "GenericIon(6,12)"
 
-i:So/Demo/NumberOfHistoriesInRun = 100 # Numberparticles of primary
+i:So/Demo/NumberOfHistoriesInRun = 100 # Number particles of primary
+i:Ts/ShowHistoryCountAtInterval = 50
 u:So/Demo/BeamEnergySpread = 0
 s:So/Demo/BeamAngularDistribution = "None"
 s:So/Demo/BeamPositionDistribution="None"
@@ -28,3 +30,7 @@ s:Sc/DoseScorer/Component = "Detector" # Where to score
 b:Sc/DoseScorer/OutputToConsole = "TRUE" # Output
 s:Sc/DoseScorer/IfOutputFileAlreadyExists = "Overwrite"
 i:Sc/DoseScorer/ZBins = 100
+
+i:Ts/Seed = 0
+d:So/Demo/BeamEnergy = 3000 MeV
+s:Sc/DoseScorer/OutputFile = "./outputs/job3000"
