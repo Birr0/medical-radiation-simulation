@@ -1,0 +1,4 @@
+includeFile = ./base_b.txt 
+i:Ts/Seed = 3
+d:Ge/Plate/TransZ=-19 cm
+s:Sc/DoseScorer/OutputFile = "./part_b/outputs_pos_neg19/job3"
