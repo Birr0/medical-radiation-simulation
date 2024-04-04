@@ -1,13 +1,5 @@
-#!/bin/bash
-export TOPAS_G4_DATA_DIR="/Applications/G4Data"
-export QT_QPA_PLATFORM_PLUGIN_PATH="/Applications/topas/Frameworks"
-i=1
-while [ $i -lt 11 ]
-do
-mkdir ./part_b ./part_b/jobs ./part_b/outputs
-cat <<EOF > ./part_b/jobs/job$i.txt
 includeFile = ./base.txt 
-i:Ts/Seed = $i
+i:Ts/Seed = 7
 
 #=== Lead plate ===#
 s:Ge/Plate/Type="TsCylinder"
@@ -41,8 +33,4 @@ b:Sc/DoseScorer/OutputToConsole = "TRUE" # Output
 s:Sc/DoseScorer/IfOutputFileAlreadyExists = "Overwrite"
 i:Sc/DoseScorer/RBins = 1000
 
-s:Sc/DoseScorer/OutputFile = "./part_b/outputs/job$i"
-EOF
-/Applications/topas/bin/topas ./part_b/jobs/job$i.txt
-((i ++))
-done
+s:Sc/DoseScorer/OutputFile = "./part_b/outputs/job7"
