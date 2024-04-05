@@ -1,0 +1,3 @@
+includeFile = ./base.txt 
+i:Ts/Seed = 8
+s:Sc/DoseScorer/OutputFile = "./outputs/job8"

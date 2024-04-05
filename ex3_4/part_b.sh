@@ -13,7 +13,7 @@ i:Ts/Seed = $i
 d:Ge/Plate/TransZ=$pos cm
 s:Sc/DoseScorer/OutputFile = "./part_b/outputs_pos$pos/job$i"
 EOF
-/usr/local/topas/topas/bin/topas ./part_b/jobs_pos$pos/job$i.txt
+/Applications/topas/bin/topas ./part_b/jobs_pos$pos/job$i.txt
 ((i++))
 done
 ((pos+=2))
